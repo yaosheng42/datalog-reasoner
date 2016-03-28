@@ -1,10 +1,12 @@
 package basics;
 
-public class Constant {
-	private String value = "";
+import java.io.PrintStream;
+
+public class Constant implements ITerm{
+	private String name;
 	
-	Constant(final String value){
-		this.value = value;
+	Constant(final String name){
+		this.name = name;
 	}
 	
 	public boolean isGround(){
@@ -15,7 +17,7 @@ public class Constant {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((value == null) ? 0 : value.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -28,20 +30,31 @@ public class Constant {
 		if (getClass() != obj.getClass())
 			return false;
 		Constant other = (Constant) obj;
-		if (value == null) {
-			if (other.value != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!value.equals(other.value))
+		} else if (!name.equals(other.name))
 			return false;
 		return true;
 	}
 
-	public String getValue() {
-		return value;
+	public String getName() {
+		return name;
 	}
 
-	public void setValue(String value) {
-		this.value = value;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Constant [name=" + name + "]";
+	}
+
+	@Override
+	public void print(PrintStream out) {
+		// TODO Auto-generated method stub
+		out.print(this.name);
 	}
 	
 	

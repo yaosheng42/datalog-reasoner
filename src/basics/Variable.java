@@ -1,14 +1,26 @@
 package basics;
 
-public class Variable {
+import java.io.PrintStream;
+
+/**
+ * A Datalog variable.
+ * @author JuneShi
+ *
+ */
+public class Variable implements ITerm{
 	private String name = "";
 	
 	Variable(final String name){
 		this.name = name;
 	}
 	
-	public boolean isGround(){
-		return false;
+	public void print(PrintStream out){
+		out.print(this.name);
+	}
+
+	@Override
+	public String toString() {
+		return "Variable [name=" + name + "]";
 	}
 
 	@Override
